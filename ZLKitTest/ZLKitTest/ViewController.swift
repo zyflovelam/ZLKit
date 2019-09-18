@@ -16,8 +16,13 @@ class ViewController: UIViewController {
         let view = ZLView.create()
             .frame(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
             .backgroundColor(color: UIColor.purple)
-            .cornerRadius(cornerRadius: 5)
-        
+            .cornerRadius(size: 5)
+            .showShadow()
+            .showBorder()
+            .onViewTapped { (view) in
+                print("on view tapped")
+            }
+        view.isScaleAtViewOnTapped = true
         self.view.addSubview(view)
         
     }

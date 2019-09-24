@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SnapKit
 
 public class ZLView: UIView {
     
-    public var isScaleAtViewOnTapped: Bool = false
+    private var _isScaleAtViewOnTapped: Bool = false
 
     private var _onTouchesBegan: ((_ touches: Set<UITouch>, _ event: UIEvent?) -> Void)?
     private var _onTouchesMoved: ((_ touches: Set<UITouch>, _ event: UIEvent?) -> Void)?
@@ -33,27 +34,33 @@ extension ZLView {
         return ZLView(frame: frame)
     }
     
-    public func frame(frame: CGRect) -> ZLView {
+    public func frame(frame: CGRect) -> Self {
         self.frame = frame
         return self
     }
     
-    public func backgroundColor(color: UIColor) -> ZLView {
+    public func backgroundColor(color: UIColor) -> Self {
         self.backgroundColor = color
         return self
     }
     
-    public func cornerRadius(size: CGFloat) -> ZLView {
+    public func cornerRadius(size: CGFloat) -> Self {
         self.layer.cornerRadius = size
         return self
     }
     
-    public func maskCorner(masks: CACornerMask) -> ZLView {
+    public func maskCorner(masks: CACornerMask) -> Self {
         self.layer.maskedCorners = masks
         return self
     }
     
-    public func showShadow(color: UIColor = UIColor.black.withAlphaComponent(0.6), opacity: Float = 0.7, radius: CGFloat = 4, offsetHeight: CGFloat = 6) -> ZLView {
+    public func addTo(view: UIView, withConstraints: ((_ make: ConstraintMaker) -> Void) = {_ in }) -> Self {
+        view.addSubview(self)
+        self.snp.makeConstraints(withConstraints)
+        return self
+    }
+    
+    public func showShadow(color: UIColor = UIColor.black.withAlphaComponent(0.6), opacity: Float = 0.7, radius: CGFloat = 4, offsetHeight: CGFloat = 6) -> Self {
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOpacity = opacity
         self.layer.shadowRadius = radius
@@ -67,7 +74,7 @@ extension ZLView {
         self.layer.shadowRadius = 0
     }
     
-    public func showBorder(color: UIColor = UIColor.black.withAlphaComponent(0.4), width: CGFloat = 1) -> ZLView {
+    public func showBorder(color: UIColor = UIColor.black.withAlphaComponent(0.4), width: CGFloat = 1) -> Self {
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
         return self
@@ -76,6 +83,11 @@ extension ZLView {
     public func hideBorder() {
         self.layer.borderWidth = 0
         self.layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    public func enableScaleAtViewOnTapped(_ enabled: Bool) -> Self {
+        self._isScaleAtViewOnTapped = enabled
+        return self
     }
 }
 
@@ -134,7 +146,7 @@ extension ZLView {
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         self._onTouchesBegan?(touches, event)
-        if isScaleAtViewOnTapped {
+        if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.1) {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
@@ -144,7 +156,7 @@ extension ZLView {
     override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         self._onTouchesEnded?(touches, event)
-        if isScaleAtViewOnTapped {
+        if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.1) {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
@@ -159,7 +171,7 @@ extension ZLView {
     override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
         self._onTouchesEnded?(touches, event)
-        if isScaleAtViewOnTapped {
+        if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.2) {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)
             }

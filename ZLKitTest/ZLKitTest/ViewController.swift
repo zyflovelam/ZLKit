@@ -8,23 +8,40 @@
 
 import UIKit
 import ZLKit
+import SnapKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let view = ZLView.create()
-            .frame(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
             .backgroundColor(color: UIColor.purple)
             .cornerRadius(size: 5)
             .showShadow()
             .showBorder()
+            .enableScaleAtViewOnTapped(true)
             .onViewTapped { (view) in
                 print("on view tapped")
             }
-        view.isScaleAtViewOnTapped = true
-        self.view.addSubview(view)
+            .addTo(view: self.view) { (make) in
+                make.size.equalTo(100)
+                make.left.top.equalToSuperview().offset(100)
+            }
         
+        let view2 = ZLView.create()
+            .backgroundColor(color: UIColor.orange)
+            .cornerRadius(size: 10)
+            .showBorder()
+            .showShadow()
+            .enableScaleAtViewOnTapped(true)
+            .onViewTapped { (_) in
+                print("on view2 tapped")
+            }
+            .addTo(view: self.view) { (make) in
+                make.size.equalTo(200)
+                make.left.equalTo(view.snp.right)
+                make.top.equalTo(view.snp.bottom).offset(20)
+            }
     }
 
 

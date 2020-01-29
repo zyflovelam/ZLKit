@@ -6,87 +6,95 @@
 //  Copyright © 2019 dev-zhang. All rights reserved.
 //
 
-import UIKit
 import SnapKit
+import UIKit
 
 public class ZLView: UIView {
-    
     private var _isScaleAtViewOnTapped: Bool = false
 
     private var _onTouchesBegan: ((_ touches: Set<UITouch>, _ event: UIEvent?) -> Void)?
     private var _onTouchesMoved: ((_ touches: Set<UITouch>, _ event: UIEvent?) -> Void)?
     private var _onTouchesEnded: ((_ touches: Set<UITouch>, _ event: UIEvent?) -> Void)?
     private var _onViewTapped: ((_ view: ZLView) -> Void)?
-    
-    
+
     fileprivate override init(frame: CGRect) {
         super.init(frame: frame)
     }
-    
-    required public init?(coder aDecoder: NSCoder) {
+
+    public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 
 extension ZLView {
     public static func create(frame: CGRect = .zero) -> ZLView {
         return ZLView(frame: frame)
     }
-    
+
+    @discardableResult
     public func frame(frame: CGRect) -> Self {
         self.frame = frame
         return self
     }
-    
+
+    @discardableResult
     public func backgroundColor(color: UIColor) -> Self {
-        self.backgroundColor = color
+        backgroundColor = color
         return self
     }
-    
+
+    @discardableResult
     public func cornerRadius(size: CGFloat) -> Self {
-        self.layer.cornerRadius = size
+        layer.cornerRadius = size
         return self
     }
-    
+
+    @discardableResult
     public func maskCorner(masks: CACornerMask) -> Self {
-        self.layer.maskedCorners = masks
+        layer.maskedCorners = masks
         return self
     }
-    
-    public func addTo(view: UIView, withConstraints: ((_ make: ConstraintMaker) -> Void) = {_ in }) -> Self {
+
+    @discardableResult
+    public func addTo(view: UIView, withConstraints: ((_ make: ConstraintMaker) -> Void) = { _ in }) -> Self {
         view.addSubview(self)
-        self.snp.makeConstraints(withConstraints)
+        snp.makeConstraints(withConstraints)
         return self
     }
-    
+
+    @discardableResult
     public func showShadow(color: UIColor = UIColor.black.withAlphaComponent(0.6), opacity: Float = 0.7, radius: CGFloat = 4, offsetHeight: CGFloat = 6) -> Self {
-        self.layer.shadowColor = color.cgColor
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowRadius = radius
-        self.layer.shadowOffset = CGSize(width: 0, height: offsetHeight)
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowRadius = radius
+        layer.shadowOffset = CGSize(width: 0, height: offsetHeight)
         return self
     }
-    
+
+    @discardableResult
     public func hideShadow() {
-        self.layer.shadowOpacity = 0
-        self.layer.shadowOffset = .zero
-        self.layer.shadowRadius = 0
+        layer.shadowOpacity = 0
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 0
     }
-    
+
+    @discardableResult
     public func showBorder(color: UIColor = UIColor.black.withAlphaComponent(0.4), width: CGFloat = 1) -> Self {
-        self.layer.borderColor = color.cgColor
-        self.layer.borderWidth = width
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
         return self
     }
-    
-    public func hideBorder() {
-        self.layer.borderWidth = 0
-        self.layer.borderColor = UIColor.clear.cgColor
+
+    @discardableResult
+    public func hideBorder() -> Self {
+        layer.borderWidth = 0
+        layer.borderColor = UIColor.clear.cgColor
+        return self
     }
-    
+
+    @discardableResult
     public func enableScaleAtViewOnTapped(_ enabled: Bool) -> Self {
-        self._isScaleAtViewOnTapped = enabled
+        _isScaleAtViewOnTapped = enabled
         return self
     }
 }
@@ -96,7 +104,7 @@ extension ZLView {
         case leftToRight
         case topToBottom
     }
-    
+
     public func gradientBackgroundColor(startColor: UIColor, endColor: UIColor, direction: GradientBackgroundDirection, size: CGSize) -> ZLView {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
@@ -110,67 +118,70 @@ extension ZLView {
             gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         }
         gradientLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        self.layer.insertSublayer(gradientLayer, at: 0)
+        layer.insertSublayer(gradientLayer, at: 0)
         return self
     }
 }
 
 // MARK: - events
+
 extension ZLView {
-    public func onViewTapped(_ action: @escaping(ZLView) -> ()) -> ZLView {
-        self._onViewTapped = action
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewTappedWithGesture(_:))))
-        self.isUserInteractionEnabled = true
+    
+    @discardableResult
+    public func onViewTapped(_ action: @escaping (ZLView) -> Void) -> ZLView {
+        _onViewTapped = action
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onViewTappedWithGesture(_:))))
+        isUserInteractionEnabled = true
         return self
     }
-    
+
     @objc private func onViewTappedWithGesture(_ sender: UITapGestureRecognizer) {
-        self._onViewTapped?(self)
+        _onViewTapped?(self)
     }
-    
-    public func onTouchesBegan(action: @escaping(_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
-        self._onTouchesBegan = action
+
+    public func onTouchesBegan(action: @escaping (_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
+        _onTouchesBegan = action
         return self
     }
-    
-    public func onTouchesMoved(action: @escaping(_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
-        self._onTouchesMoved = action
+
+    public func onTouchesMoved(action: @escaping (_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
+        _onTouchesMoved = action
         return self
     }
-    
-    public func onTouchesEnded(action: @escaping(_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
-        self._onTouchesEnded = action
+
+    public func onTouchesEnded(action: @escaping (_ touches: Set<UITouch>, _ event: UIEvent?) -> Void) -> ZLView {
+        _onTouchesEnded = action
         return self
     }
-    
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        self._onTouchesBegan?(touches, event)
+        _onTouchesBegan?(touches, event)
         if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.1) {
                 self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
             }
         }
     }
-    
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        self._onTouchesEnded?(touches, event)
+        _onTouchesEnded?(touches, event)
         if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.1) {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         }
     }
-    
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
-        self._onTouchesMoved?(touches, event)
+        _onTouchesMoved?(touches, event)
     }
-    
-    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesCancelled(touches, with: event)
-        self._onTouchesEnded?(touches, event)
+        _onTouchesEnded?(touches, event)
         if _isScaleAtViewOnTapped {
             UIView.animate(withDuration: 0.2) {
                 self.transform = CGAffineTransform(scaleX: 1, y: 1)

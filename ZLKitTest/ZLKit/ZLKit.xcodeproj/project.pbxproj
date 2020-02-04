@@ -7,31 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		99BEF649233A643F00C1DE59 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BEF645233A643800C1DE59 /* SnapKit.framework */; };
 		99E3D370233120320090D73A /* ZLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 99E3D36E233120320090D73A /* ZLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99E3D37D2331204A0090D73A /* ZLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3D37C2331204A0090D73A /* ZLButton.swift */; };
 		99E3D380233120680090D73A /* ZLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3D37F233120680090D73A /* ZLView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		99BEF644233A643800C1DE59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99BEF63F233A643700C1DE59 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
-			remoteInfo = SnapKit;
-		};
-		99BEF646233A643800C1DE59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99BEF63F233A643700C1DE59 /* SnapKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
-			remoteInfo = "SnapKit Tests";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		99BEF63F233A643700C1DE59 /* SnapKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SnapKit.xcodeproj; path = ../../../../git/SnapKit/SnapKit.xcodeproj; sourceTree = "<group>"; };
 		99E3D36B233120320090D73A /* ZLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E3D36E233120320090D73A /* ZLKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLKit.h; sourceTree = "<group>"; };
 		99E3D36F233120320090D73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,22 +25,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99BEF649233A643F00C1DE59 /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		99BEF640233A643700C1DE59 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				99BEF645233A643800C1DE59 /* SnapKit.framework */,
-				99BEF647233A643800C1DE59 /* SnapKit Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		99BEF648233A643F00C1DE59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +41,6 @@
 		99E3D361233120320090D73A = {
 			isa = PBXGroup;
 			children = (
-				99BEF63F233A643700C1DE59 /* SnapKit.xcodeproj */,
 				99E3D36D233120320090D73A /* ZLKit */,
 				99E3D36C233120320090D73A /* Products */,
 				99BEF648233A643F00C1DE59 /* Frameworks */,
@@ -161,35 +131,12 @@
 			mainGroup = 99E3D361233120320090D73A;
 			productRefGroup = 99E3D36C233120320090D73A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 99BEF640233A643700C1DE59 /* Products */;
-					ProjectRef = 99BEF63F233A643700C1DE59 /* SnapKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				99E3D36A233120320090D73A /* ZLKit */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		99BEF645233A643800C1DE59 /* SnapKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SnapKit.framework;
-			remoteRef = 99BEF644233A643800C1DE59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		99BEF647233A643800C1DE59 /* SnapKit Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SnapKit Tests.xctest";
-			remoteRef = 99BEF646233A643800C1DE59 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		99E3D369233120320090D73A /* Resources */ = {

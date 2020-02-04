@@ -6,7 +6,6 @@
 //  Copyright © 2019 dev-zhang. All rights reserved.
 //
 
-import SnapKit
 import UIKit
 
 public class ZLView: UIView {
@@ -27,43 +26,37 @@ public class ZLView: UIView {
 }
 
 extension ZLView {
-    public static func create(frame: CGRect = .zero) -> ZLView {
+    public static func create(_ frame: CGRect = .zero) -> ZLView {
         return ZLView(frame: frame)
     }
 
     @discardableResult
-    public func frame(frame: CGRect) -> Self {
+    public func frame(_ frame: CGRect) -> Self {
         self.frame = frame
         return self
     }
 
     @discardableResult
-    public func backgroundColor(color: UIColor) -> Self {
+    public func backgroundColor(_ color: UIColor) -> Self {
         backgroundColor = color
         return self
     }
 
     @discardableResult
-    public func cornerRadius(size: CGFloat) -> Self {
+    public func cornerRadius(_ size: CGFloat) -> Self {
         layer.cornerRadius = size
         return self
     }
 
     @discardableResult
-    public func maskCorner(masks: CACornerMask) -> Self {
+    public func maskCorner(_ masks: CACornerMask) -> Self {
         layer.maskedCorners = masks
         return self
     }
 
-    @discardableResult
-    public func addTo(view: UIView, withConstraints: ((_ make: ConstraintMaker) -> Void) = { _ in }) -> Self {
-        view.addSubview(self)
-        snp.makeConstraints(withConstraints)
-        return self
-    }
 
     @discardableResult
-    public func showShadow(color: UIColor = UIColor.black.withAlphaComponent(0.6), opacity: Float = 0.7, radius: CGFloat = 4, offsetHeight: CGFloat = 6) -> Self {
+    public func shadow(color: UIColor = UIColor.black.withAlphaComponent(0.6), opacity: Float = 0.7, radius: CGFloat = 4, offsetHeight: CGFloat = 6) -> Self {
         layer.shadowColor = color.cgColor
         layer.shadowOpacity = opacity
         layer.shadowRadius = radius
@@ -71,7 +64,6 @@ extension ZLView {
         return self
     }
 
-    @discardableResult
     public func hideShadow() {
         layer.shadowOpacity = 0
         layer.shadowOffset = .zero
@@ -79,7 +71,7 @@ extension ZLView {
     }
 
     @discardableResult
-    public func showBorder(color: UIColor = UIColor.black.withAlphaComponent(0.4), width: CGFloat = 1) -> Self {
+    public func border(color: UIColor = UIColor.black.withAlphaComponent(0.4), width: CGFloat = 1) -> Self {
         layer.borderColor = color.cgColor
         layer.borderWidth = width
         return self

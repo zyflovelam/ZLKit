@@ -17,10 +17,10 @@
 		0E5A4648240FE49F00315281 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A4646240FE49F00315281 /* Main.storyboard */; };
 		0E5A464A240FE4A100315281 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A4649240FE4A100315281 /* Assets.xcassets */; };
 		0E5A464D240FE4A100315281 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E5A464B240FE4A100315281 /* LaunchScreen.storyboard */; };
-		0E5A4652240FE7E800315281 /* ZLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44037B240D31D800B95496 /* ZLKit.framework */; };
-		0E5A4653240FE7E800315281 /* ZLKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44037B240D31D800B95496 /* ZLKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0E5A4652240FE7E800315281 /* ZLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44037B240D31D800B95496 /* ZLKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0E5A4658240FF07300315281 /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4657240FF07300315281 /* UIButton+Extensions.swift */; };
 		0E5A465A240FF4FB00315281 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5A4659240FF4FB00315281 /* UIImage+Extensions.swift */; };
+		0E6FA16E24129C1800D0B465 /* ZLKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E44037B240D31D800B95496 /* ZLKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		39ECEA348D0879317065CCBE /* Pods_ZLKit_ZLKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4CED3593A5CC5C45239B4F7 /* Pods_ZLKit_ZLKitTests.framework */; };
 		4D306EBFD119BBCA167FDCFC /* Pods_ZLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5441CB83DE3B7D03A8E8A8 /* Pods_ZLKit.framework */; };
 /* End PBXBuildFile section */
@@ -49,10 +49,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0E5A4653240FE7E800315281 /* ZLKit.framework in Embed Frameworks */,
+				0E6FA16E24129C1800D0B465 /* ZLKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E6FA165241299D400D0B465 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -74,6 +83,13 @@
 		0E5A464E240FE4A100315281 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E5A4657240FF07300315281 /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		0E5A4659240FF4FB00315281 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		0E6FA158241294BD00D0B465 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA15B241294E500D0B465 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA15E2412954200D0B465 /* Pods_ZLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ZLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA161241297E600D0B465 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA1632412983500D0B465 /* Pods_ZLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ZLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA16824129B7100D0B465 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E6FA16A24129BE500D0B465 /* Pods_ZLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_ZLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61ED2719561B9F0B3C6CFCE2 /* Pods-ZLKit-ZLKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLKit-ZLKitTests.debug.xcconfig"; path = "Target Support Files/Pods-ZLKit-ZLKitTests/Pods-ZLKit-ZLKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8978C1DA96A278CF6111D6D6 /* Pods-ZLKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLKit.debug.xcconfig"; path = "Target Support Files/Pods-ZLKit/Pods-ZLKit.debug.xcconfig"; sourceTree = "<group>"; };
 		8BD746C2F37AACACACCF713C /* Pods-ZLKit-ZLKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZLKit-ZLKitTests.release.xcconfig"; path = "Target Support Files/Pods-ZLKit-ZLKitTests/Pods-ZLKit-ZLKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -182,6 +198,13 @@
 		EAD09B6674DDD4B26137CCEC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E6FA16A24129BE500D0B465 /* Pods_ZLKit.framework */,
+				0E6FA16824129B7100D0B465 /* SnapKit.framework */,
+				0E6FA1632412983500D0B465 /* Pods_ZLKit.framework */,
+				0E6FA161241297E600D0B465 /* SnapKit.framework */,
+				0E6FA15E2412954200D0B465 /* Pods_ZLKit.framework */,
+				0E6FA15B241294E500D0B465 /* SnapKit.framework */,
+				0E6FA158241294BD00D0B465 /* SnapKit.framework */,
 				FC5441CB83DE3B7D03A8E8A8 /* Pods_ZLKit.framework */,
 				A4CED3593A5CC5C45239B4F7 /* Pods_ZLKit_ZLKitTests.framework */,
 			);
@@ -211,6 +234,7 @@
 				0E440377240D31D800B95496 /* Sources */,
 				0E440378240D31D800B95496 /* Frameworks */,
 				0E440379240D31D800B95496 /* Resources */,
+				0E6FA165241299D400D0B465 /* CopyFiles */,
 			);
 			buildRules = (
 			);

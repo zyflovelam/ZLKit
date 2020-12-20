@@ -33,7 +33,29 @@ class ViewController: UIViewController {
                 make.size.equalTo(100)
                 make.centerX.equalToSuperview()
             }
+
+        let button = UIButton()
+            .title("测试按钮")
+            .backgroundColor(.blue)
+            .titleFont(UIFont.systemFont(ofSize: 20))
+            .titleColor(.red)
+            .addTo(view)
+            .constraint { make in
+                make.top.equalTo(imageView1.snp.bottom).offset(20)
+                make.width.equalTo(100)
+                make.height.equalTo(40)
+                make.centerX.equalToSuperview()
+            }
+            .onTapped { _ in
+                print("点击了button")
+            }
         
-        
+        let zlSwitch = ZLSwitch()
+            .addTo(view)
+            .constraint { (make) in
+                make.top.equalTo(button.snp.bottom).offset(20)
+                make.centerX.equalToSuperview()
+                make.size.equalTo(ZLSwitchAppearence.size)
+            }
     }
 }

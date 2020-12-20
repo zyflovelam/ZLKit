@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E42A293258EFAB2006B9C24 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E42A292258EFAB2006B9C24 /* UIButton+Extension.swift */; };
+		0E42A296258EFC74006B9C24 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E42A295258EFC74006B9C24 /* Extensions.swift */; };
+		0E42A29B258F0454006B9C24 /* ZLSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E42A29A258F0454006B9C24 /* ZLSwitch.swift */; };
 		0E74626A258A49A000BCFC3F /* ZLKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E746268258A49A000BCFC3F /* ZLKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E746272258A49AF00BCFC3F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E746271258A49AF00BCFC3F /* UIView+Extension.swift */; };
 		0E746280258A53FE00BCFC3F /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E74627F258A53FE00BCFC3F /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E42A292258EFAB2006B9C24 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		0E42A295258EFC74006B9C24 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0E42A29A258F0454006B9C24 /* ZLSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZLSwitch.swift; sourceTree = "<group>"; };
 		0E746265258A49A000BCFC3F /* ZLKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZLKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E746268258A49A000BCFC3F /* ZLKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZLKit.h; sourceTree = "<group>"; };
 		0E746269258A49A000BCFC3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +37,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E42A298258F043C006B9C24 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0E746271258A49AF00BCFC3F /* UIView+Extension.swift */,
+				0E74627F258A53FE00BCFC3F /* UIImageView+Extension.swift */,
+				0E42A292258EFAB2006B9C24 /* UIButton+Extension.swift */,
+				0E42A295258EFC74006B9C24 /* Extensions.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		0E42A299258F0446006B9C24 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				0E42A29A258F0454006B9C24 /* ZLSwitch.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		0E74625B258A49A000BCFC3F = {
 			isa = PBXGroup;
 			children = (
@@ -50,10 +75,10 @@
 		0E746267258A49A000BCFC3F /* ZLKit */ = {
 			isa = PBXGroup;
 			children = (
+				0E42A299258F0446006B9C24 /* components */,
+				0E42A298258F043C006B9C24 /* extensions */,
 				0E746268258A49A000BCFC3F /* ZLKit.h */,
 				0E746269258A49A000BCFC3F /* Info.plist */,
-				0E746271258A49AF00BCFC3F /* UIView+Extension.swift */,
-				0E74627F258A53FE00BCFC3F /* UIImageView+Extension.swift */,
 			);
 			path = ZLKit;
 			sourceTree = "<group>";
@@ -139,6 +164,9 @@
 			files = (
 				0E746280258A53FE00BCFC3F /* UIImageView+Extension.swift in Sources */,
 				0E746272258A49AF00BCFC3F /* UIView+Extension.swift in Sources */,
+				0E42A293258EFAB2006B9C24 /* UIButton+Extension.swift in Sources */,
+				0E42A296258EFC74006B9C24 /* Extensions.swift in Sources */,
+				0E42A29B258F0454006B9C24 /* ZLSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
